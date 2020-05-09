@@ -13,7 +13,7 @@ destinyPath = "C:\\backupTeste\\"
 
 SO = sys.platform
 imagesExtensions = ["jpg", "jpeg", "png", "gif", "tiff", "bmp", "psd", "raw", "xcf", "svg", "ppm", "pgm", "pbm", "pnm", "cdr"]
-documentsExtensions = ["txt", "pdf", "xps", "doc", "docx", "ppt", "pptx", "xls", "xlsm", "xlsx", "ods", "odf", "odt", "odp"]
+documentsExtensions = ["txt", "pdf", "xps", "doc", "docx", "ppt", "pptx", "xls", "xlsm", "xlsx", "ods", "odf", "odt", "odp", "rtf"]
 songsExtensions = ["mp3", "ogg", "wma", "wav", "aac"]
 videosExtensions = ["avi", "mp4", "wmv", "3gp", "mkv"]
 subtitlesExtensions = ["srt"]
