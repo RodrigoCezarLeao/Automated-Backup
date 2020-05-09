@@ -1,40 +1,13 @@
-import os
+
+import time
 import sys
 from tkinter import Tk
 from tkinter.messagebox import showinfo
+import os
 
-
-#Windows functions
-def createDirectories():
-    for fileCategory in extensions:
-        os.system(f"mkdir {destinyPath}\\{fileCategory}")
-        for extension in extensions[fileCategory]:
-            os.system(f"mkdir {destinyPath}\\{fileCategory}\\{extension}")
-
-def isProperFile(path):
-    for fileCategory in extensions:
-        for extension in extensions[fileCategory]:
-            if extension.upper() in path[-4:].upper():
-                return True
-
-    return False
-
-def properDestinyPath(abspath):    
-    ext = abspath[-4:].replace(".", "")
-    ext = ext.replace("\\", "")
-
-                      
-    for fileCategory in extensions:
-        for extension in extensions[fileCategory]:
-            if ext.upper() == extension.upper():
-                return f"{destinyPath}\{fileCategory}\{extension}\\"
-
-    
-    
         
 
-
-#Global Variables (path without final \\
+#Global Variables (path without final \\)
 originPath = "C:\\Users\\Rodrigo"
 destinyPath = "C:\\backupTeste\\"
 
@@ -52,22 +25,24 @@ extensions = {
     "video" : videosExtensions,
     "subtitle": subtitlesExtensions}
 
+
+#Start
 root=Tk()
 root.withdraw()
-
 showinfo(message="Inicializando o Backup...")
+
+ini = time.time()
 #Select proper Operating System
 if 'WIN' in SO.upper():   
     os.system(f"mkdir {destinyPath}")
-    #createDirectories()
 
     for category in extensions:
         for ext in extensions[category]:     
             comando = f"xcopy {originPath}\\*.{ext} {destinyPath} /s /c"
             os.system(comando)
             
-            
-input("Pressione uma tecla")
-showinfo(message="Fim do Backup.")
+
+fim = time.time()            
+showinfo(message=f"Fim do Backup. Tempo de Execução: {round(fim-ini, 2)} s")
 root.destroy()
 
