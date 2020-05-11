@@ -1,6 +1,8 @@
+@echo off
 mkdir "C:\backupTeste"
 set destiny="C:\backupTeste"
 set origin="C:\Users\Rodrigo\Desktop"
+set ini=%time%
 echo "Iniciando Backup.."
 xcopy %origin%\*.jpg %destiny%\ /s /c /y
 xcopy %origin%\*.jpeg %destiny%\ /s /c /y
@@ -50,5 +52,8 @@ xcopy %origin%\*.java %destiny%\ /s /c /y
 xcopy %origin%\*.js %destiny%\ /s /c /y
 xcopy %origin%\*.html %destiny%\ /s /c /y
 xcopy %origin%\*.css %destiny%\ /s /c /y
+set fim=%time%
+echo Start Backup: %ini%
+echo End Backup: %fim%
 echo "Fim do Backup."
 cmd
