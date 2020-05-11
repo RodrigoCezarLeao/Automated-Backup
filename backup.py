@@ -59,12 +59,14 @@ if mode == 1:
 elif mode == 2:
     if 'WIN' in SO.upper():
         fp = open("backup.bat", "w")
-        fp.write(f"mkdir {destinyPath}\n")
+        fp.write(f"mkdir \"{destinyPath}\"\n")
+        fp.write(f"set destiny=\"{destinyPath}\"\n")
+        fp.write(f"set origin=\"{originPath}\"\n")        
         fp.write(f"echo \"Iniciando Backup..\"\n")
 
         for category in extensions:
             for ext in extensions[category]:     
-                fp.write(f"xcopy {originPath}\\*.{ext} {destinyPath} /s /c /y\n")
+                fp.write(f"xcopy %origin%\\*.{ext} %destiny%\\ /s /c /y\n")
 
         fp.write(f"echo \"Fim do Backup.\"\ncmd")        
         fp.close()
